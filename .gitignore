@@ -40,3 +40,10 @@ build/
 # Ignore MySQL runtime files
 environment/data/db_data/*
 !environment/data/db_data/*.sql
+
+# Ignore grafana runtime files
+environment/data/prometheus_data/*
+
+# Ignore prometheus_data
+environment/grafana-storage/*
+

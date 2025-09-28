@@ -1,16 +1,26 @@
 global:
-  scrape_interval: 15s // Thếtt lập khoảng thời gian thu thập dữ liệu mặc định là 15 giây. Bạn có thể điều chỉnh giá trị này tùy theo nhu cầu giám sát của mình.
+  scrape_interval: 15s #Thết lập khoảng thời gian thu thập dữ liệu mặc định là 15 giây. Bạn có thể điều chỉnh giá trị này tùy theo nhu cầu giám sát của mình.
 
 scrape_configs:
   - job_name: "banvetau-prometheus"
-    scrape_interval: 5s // Cấu hình này ghi đè khoảng thời gian thu thập dữ liệu mặc định cho công việc cụ thể này, đặt thành 5 giây.
+    scrape_interval: 5s #Cấu hình này ghi đè khoảng thời gian thu thập dữ liệu mặc định cho công việc cụ thể này, đặt thành 5 giây.
     static_configs:
-      - targets: ["localhost:9090"] // Địa chỉ của máy chủ Prometheus mà bạn muốn giám sát. Trong trường hợp này, nó là chính máy chủ Prometheus.
+      - targets: ["host.docker.internal:9090"] #Địa chỉ của máy chủ Prometheus mà bạn muốn giám sát. Trong trường hợp này, nó là chính máy chủ Prometheus.
     metrics_path: "/metrics"
 
   - job_name: "banvetau-springboot"
     scrape_interval: 5s
     static_configs:
-      - targets: ["localhost:1122"]
+      - targets: ["host.docker.internal:1122"]
     metrics_path: "/actuator/prometheus"
 
+  - job_name: "banvetau-node-exporter"
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ "host.docker.internal:9100" ]
+
+  - job_name: "banvetau-mysql-exporter"
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ "host.docker.internal:9104" ]
+    metrics_path: "/metrics"
