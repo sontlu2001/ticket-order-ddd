@@ -1,8 +1,11 @@
 server:
   port: 1122
+  address: 0.0.0.0
   tomcat:
     threads:
       max: 200 #
+    virtual-threads:
+      enabled: true
 
 spring:
   # application
