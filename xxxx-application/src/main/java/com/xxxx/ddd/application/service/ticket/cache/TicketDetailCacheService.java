@@ -120,7 +120,6 @@ public class TicketDetailCacheService {
             ticketDetailLocalCache.put(id, ticketDetail);
             return ticketDetail;
 
-            // OK XONG, chung ta review code nay ok ... ddau vaof DDD thoi nao
         } catch (Exception e) {
             throw new RuntimeException(e);
         }finally {

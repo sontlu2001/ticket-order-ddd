@@ -25,7 +25,6 @@ public class TicketDetailController {
             @PathVariable("ticketId") Long ticketId,
             @PathVariable("detailId") Long detailId
     ) {
-        log.info("MEMBER TIPS GO");
         log.info(" ticketId:{}, detailId:{}", ticketId, detailId);
         return ResultUtil.data(ticketDetailAppService.getTicketDetailById(detailId));
     }
